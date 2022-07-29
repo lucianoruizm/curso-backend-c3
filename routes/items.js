@@ -1,15 +1,14 @@
 var express = require('express');
 var router = express.Router();
-const {itemsList} = require('../controllers/controller')
+const {item, itemsList, consultaAxios} = require('../controllers/controller')
 
-/* GET users listing. */
-// http://localhost:3000/items
-router.get('/', function(req, res, next) {
-  res.send('items');
-});
 
-// http://localhost:3000/items/list
-router.get('/list', itemsList);
+
+router.get('/', item);   // http://localhost:3000/items
+
+router.get('/list', itemsList);   // http://localhost:3000/items/list
+
+router.get('/pokemon/:name', consultaAxios)   // http://localhost:3000/items/pokemon
 
 
 module.exports = router;
